@@ -17,12 +17,14 @@ let boxX = 20;
 function setup() {
     circleX = canvas.width / 1000;
     circleY = canvas.height / 1000;
-    firstBox = new EmptyBox(50, 50, 200, 300);
+    firstBox = new EmptyBox(getRandomNumber(20, 100), getRandomNumber(20, 100), getRandomNumber(20, 100), getRandomNumber(20, 100), getRandomColorHex());
     draw();
 }
 
 function draw(now) {
     requestAnimationFrame(draw);
+
+    
 
     if (!lastTime) {
         lastTime = now;
@@ -43,8 +45,8 @@ function draw(now) {
         ctx.arc(circleX, circleY, 50, 0, Math.PI*2);
         ctx.fill();
 
-        ctx.drawImage(bananBackground, 0, 0, canvas.width, canvas.height);
-
+        //ctx.drawImage(bananBackground, 0, 0, canvas.width, canvas.height);
+ 
         firstBox.draw(ctx);
 
         // then the last step
@@ -73,5 +75,4 @@ window.addEventListener("load", () => {
     bananmanImage.onload = () => {
         setup();        
     }
-    
 });
